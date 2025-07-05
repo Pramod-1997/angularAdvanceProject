@@ -19,19 +19,24 @@ export class ValidationComponent {
 
     this.userProfile = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      firstName:[null,[Validators.required,noSpaceValidator]],
-      secondName:[null,[Validators.required,CustomValidator.noSpaceValidator]],
+      firstName: [null, [Validators.required, noSpaceValidator]],
+      secondName: [null, [Validators.required, CustomValidator.noSpaceValidator]],
       // employee:[null,[Validators.required]],
       income: [null],
-      age:[null,[Validators.required,CustomValidator.ageRangeValidator]],
-        password: [null, Validators.required],
-  confirmPassword: [null, Validators.required],
-   status: ['', Validators.required],
-  postponeDate: [''] // we don't make it required here
+      age: [null, [Validators.required, CustomValidator.ageRangeValidator]],
+      password: [null, Validators.required],
+      confirmPassword: [null, Validators.required],
+      status: ['', Validators.required],
+      postponeDate: [''] // we don't make it required here
     }, {
-  validators: CustomValidator.passwordMatchValidator
-}
-)
+      //  validators: CustomValidator.passwordMatchValidator, //single customer validator
+      validators: [  // group custom validator or  cross-validation
+        CustomValidator.passwordMatchValidator,
+        CustomValidator.postponeRequired
+      ]
+
+    }
+    )
 
   }
 
