@@ -8,7 +8,6 @@ export class CustomValidator {
     if (value?.includes(' ')) {
       return { noSpacesAllowed: true };
     }
-
     return null;
   }
 
