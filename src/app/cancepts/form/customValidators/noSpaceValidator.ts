@@ -6,6 +6,5 @@ export function noSpaceValidator(control: AbstractControl): ValidationErrors | n
   if (value?.includes(' ')) {
     return { noSpacesAllowed: true }; 
   }
-
   return null; 
 }
