@@ -1,0 +1,5 @@
+<p>parent works!</p>
+
+<!-- <app-child [userState]="true" ></app-child> -->
+ <h2>User Viewer</h2>
+    <app-child [user]="users[currentIndex]" (navigate)="onNavigate($event)"></app-child>

@@ -1,0 +1,107 @@
+<div class="p-3">
+    <form [formGroup]="userProfile" (ngSubmit)="profileSubmit()">
+
+        <div class="row g-4">
+
+            <div class="col-6">
+                <label for="">First Name:</label>
+                <input type="text" id="name" formControlName="firstName">
+                <div *ngIf="f['firstName'].invalid && f['firstName'].touched">
+                    <small *ngIf="f['firstName'].errors?.['required']">firstName is required.</small>
+                    <small *ngIf="f['firstName'].errors?.['noSpacesAllowed']">No spaces allowed</small>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="">Second Name:</label>
+                <input type="text" id="name" formControlName="secondName">
+                <div *ngIf="f['secondName'].invalid && f['secondName'].touched">
+                    <small *ngIf="f['secondName'].errors?.['required']">secondName is required.</small>
+                    <small *ngIf="f['secondName'].errors?.['noSpacesAllowed']">No spaces allowed</small>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div>
+                    <label for="name">user Name:</label>
+                    <input type="text" id="name" formControlName="name">
+                    <div *ngIf="f['name'].invalid && f['name'].touched">
+                        <small *ngIf="f['name'].errors?.['required']">name is required.</small>
+                        <small *ngIf="f['name'].errors?.['minlength']">min 3 characters is required.</small>
+                        <small *ngIf="f['name'].errors?.['maxlength']">Max 20 characters is required.</small>
+                    </div>
+                </div> 
+            </div>
+
+             <div class="col-6">
+                <div>
+                    <label for="name">age:</label>
+                    <input type="text" id="name" formControlName="age">
+                    <div *ngIf="f['age'].invalid && f['age'].touched">
+                        <small *ngIf="f['age'].errors?.['required']">age is required.</small>
+                         <small *ngIf="f['age'].errors?.['ageRange']">Age must be between 18 and 60</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div>
+                    <label for="name">password:</label>
+                    <input type="text" id="name" formControlName="password">
+                    <div *ngIf="f['password'].invalid && f['password'].touched">
+                        <small *ngIf="f['password'].errors?.['required']">password is required.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div>
+                    <label for="name">confirmPassword:</label>
+                    <input type="text" id="name" formControlName="confirmPassword">
+                    <div *ngIf="f['confirmPassword'].invalid && f['confirmPassword'].touched">
+                        <small *ngIf="f['confirmPassword'].errors?.['required']">confirmPassword is required.</small>
+                    </div>
+                </div>
+            </div>
+
+             <div class="col-6">
+                  <label for="name">Status:</label>
+                 <select formControlName="status">
+  <option value="">--Select Status--</option>
+  <option value="pending">Pending</option>
+  <option value="completed">Completed</option>
+  <option value="postpone">Postpone</option>
+</select>
+ <div *ngIf="f['status'].invalid && f['status'].touched">
+                        <small *ngIf="f['status'].errors?.['required']">status is required.</small>
+                    </div>
+
+             </div>
+
+            <div class="col-6">
+                  <label for="name">Postpone date:</label>
+<input type="date" formControlName="postponeDate" >
+
+<div *ngIf="userProfile.errors?.['postponeRequired'] && f['postponeDate'].touched">
+  <small class="text-danger">PostPone is required when status is 'postpone'</small>
+</div>
+            </div>
+
+
+
+
+
+            <div *ngIf="userProfile.errors?.['passwordMismatch'] && userProfile.touched">
+                <small>Passwords do not match</small>
+            </div>
+
+
+            <div class="d-flex gap-5">
+                <button type="button" (click)="addValidation()">Add Income Validation</button>
+                <button type="button" (click)="removeValidation()">Remove Income Validation</button>
+                <button type="submit">Save Profile</button>
+            </div>
+        </div>
+
+    </form>
+</div>

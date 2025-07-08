@@ -8,5 +8,9 @@ export const chamgeDetectionRoute:Routes =[
     {
         path:'child',
         loadComponent:()=>import('./child/child.component').then(l=>l.ChildComponent)
+    },
+    {
+        path:'zonejs',
+        loadComponent:()=>import('./zone/zone.component').then(l=>l.ZoneComponent)
     }
 ]
