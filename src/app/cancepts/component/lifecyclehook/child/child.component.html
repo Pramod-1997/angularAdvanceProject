@@ -1,0 +1,7 @@
+<p>child works!</p>
+ <div *ngIf="user">
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <p><strong>Age:</strong> {{ user.age }}</p>
+      <button (click)="goPrevious()">Previous</button>
+      <button (click)="goNext()">Next</button>
+    </div>
