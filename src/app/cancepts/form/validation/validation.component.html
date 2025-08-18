@@ -95,6 +95,26 @@
                 <small>Passwords do not match</small>
             </div>
 
+            <div>
+    <label>Min Capacity</label>
+    <input formControlName="min_Capacity" type="number" class="form-control" />
+  </div>
+
+  <div>
+    <label>Max Capacity</label>
+    <input formControlName="max_Capacity" type="number" class="form-control" />
+  </div>
+
+  <div>
+    <label>Actual Capacity</label>
+    <input formControlName="actualCapacity" type="number" class="form-control"
+         />
+  </div>
+
+  <div *ngIf="userProfile.errors?.['valueMismatch'] ">
+    <small style="color: red;">Actual capacity must be between min and max capacity.</small>
+  </div>
+
 
             <div class="d-flex gap-5">
                 <button type="button" (click)="addValidation()">Add Income Validation</button>

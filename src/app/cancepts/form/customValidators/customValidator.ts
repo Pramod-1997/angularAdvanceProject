@@ -61,5 +61,20 @@ export class CustomValidator {
   return null; // ✅ valid
 };
 
+ static minMaxValidator(formGroup: AbstractControl): ValidationErrors | null {
+    const min = formGroup.get('min_Capacity')?.value;
+    const max = formGroup.get('max_Capacity')?.value;
+    const actual = formGroup.get('actualCapacity')?.value;
+
+    // If any are missing, skip validation
+    if (min == null || max == null || actual == null) {
+      return null;
+    }
+
+    const isValid = min < actual && actual < max && min < max;
+
+    return isValid ? null : { valueMismatch: true };
+  }
+
 
 }

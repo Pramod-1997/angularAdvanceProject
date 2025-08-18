@@ -27,12 +27,16 @@ export class ValidationComponent {
       password: [null, Validators.required],
       confirmPassword: [null, Validators.required],
       status: ['', Validators.required],
-      postponeDate: [''] // we don't make it required here
+      postponeDate: [''], // we don't make it required here
+       min_Capacity: [null, Validators.required],
+      max_Capacity: [null, Validators.required],
+      actualCapacity: [null, Validators.required],
     }, {
       //  validators: CustomValidator.passwordMatchValidator, //single customer validator
       validators: [  // group custom validator or  cross-validation
         CustomValidator.passwordMatchValidator,
-        CustomValidator.postponeRequired
+        CustomValidator.postponeRequired,
+        CustomValidator.minMaxValidator
       ]
 
     }
@@ -46,6 +50,11 @@ export class ValidationComponent {
   }
 
   profileSubmit() {
+
+    if (this.userProfile.invalid) {
+    this.userProfile.markAllAsTouched();  // highlight all errors
+    return;
+  }
     console.log(this.userProfile.value);
     console.log("valid", this.userProfile.valid);
   }

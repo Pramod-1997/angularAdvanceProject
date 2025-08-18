@@ -1,0 +1,36 @@
+<p>Control Flow</p>
+
+
+@if (a > b) {
+  <p>{{a}} is greater than {{b}}</p>
+}
+
+
+@if (a > b) {
+  {{a}} is greater than {{b}}
+} @else if (b > a) {
+  {{a}} is less than {{b}}
+} @else {
+  {{a}} is equal to {{b}}
+}
+
+@for (item of items; track item.id) {
+  <div>{{ item.name }}</div>
+}
+
+
+@switch (role) {
+  @case ('admin') {
+    <p>Welcome, Admin!</p>
+  }
+  @case ('editor') {
+    <p>Welcome, Editor!</p>
+  }
+  @case ('viewer') {
+    <p>Welcome, Viewer!</p>
+  }
+  @default {
+    <p>Role not recognized.</p>
+  }
+}
+

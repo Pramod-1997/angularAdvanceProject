@@ -1,6 +1,14 @@
+
+/* Red border when invalid and touched */
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+/* Green border when valid */
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+
 
 small{
     color: red;

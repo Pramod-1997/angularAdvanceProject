@@ -1,0 +1,14 @@
+<p>custom works!</p>
+
+
+<p>{{userStarus|status}}</p>
+
+<input type="text" [(ngModel)]="searchText" placeholder="Search users">
+
+<ul>
+  <li *ngFor="let user of users | filter:searchText">
+    {{ user.name }}
+  </li>
+</ul>
+
+<p>{{content | truncate:10}}</p>

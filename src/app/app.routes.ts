@@ -16,5 +16,21 @@ export const routes: Routes = [
      {
         path:'component',
         loadChildren: ()=>import('./cancepts/component/component.route').then(l=>l.componentRoute)
+    },
+     {
+        path:'rxjs',
+        loadChildren: ()=>import('./cancepts/rxjs/rxjs.route').then(l=>l.rxjsRoutes)
+    },
+     {
+        path:'signal',
+        loadChildren: ()=>import('./cancepts/signal/signal.route').then(l=>l.signalRoutes)
+    },
+     {
+        path:'controlflow',
+        loadChildren: ()=>import('./cancepts/controlFlow/controlflow.route').then(l=>l.controlFlowRoutes)
+    },
+    {
+        path:'directive',
+        loadChildren: ()=>import('./cancepts/directives/directiveRoute').then(l=>l.directiveRoutes)
     }
 ];
